@@ -4,9 +4,11 @@ This repository contains the experiment code for **Pairwise Reference Alignment 
 
 Paper: [Pairwise Reference Alignment as a Model-Level Ordinal Observable](https://arxiv.org/abs/2605.30758)
 
-The project studies whether a fixed language model's score-induced ordering agrees with a reference pair distribution. Given a prompt \(x\), a reference-preferred response \(y^+\), a reference-rejected response \(y^-\), and a model score \(S_M(x,y)\), the main sign observable is
+The project studies whether a fixed language model's score-induced ordering agrees with a reference pair distribution. Given a prompt $x$, a reference-preferred response $y^+$, a reference-rejected response $y^-$, and a model score $S_M(x,y)$, the code reports two main observables.
 
-\[
+The sign agreement observable is
+
+$$
 \hat{A}_M
 =
 \frac{1}{K}
@@ -15,7 +17,19 @@ The project studies whether a fixed language model's score-induced ordering agre
 \left[
 S_M(x_k,y_k^+) > S_M(x_k,y_k^-)
 \right].
-\]
+$$
+
+The mean signed margin observable is
+
+$$
+\hat{\mu}_M
+=
+\frac{1}{K}
+\sum_{k=1}^{K}
+\left[
+S_M(x_k,y_k^+) - S_M(x_k,y_k^-)
+\right].
+$$
 
 The current experiments mainly use token-normalized log-likelihood as the scoring rule and evaluate Qwen2.5 models on RewardBench.
 
