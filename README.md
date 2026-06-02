@@ -9,26 +9,13 @@ The project studies whether a fixed language model's score-induced ordering agre
 The sign agreement observable is
 
 $$
-\hat{A}_M
-=
-\frac{1}{K}
-\sum_{k=1}^{K}
-\mathbf{1}
-\left[
-S_M(x_k,y_k^+) > S_M(x_k,y_k^-)
-\right].
+\hat{A}_M=\frac{1}{K}\sum_{k=1}^{K}\mathbf{1}\left[S_M(x_k,y_k^+) > S_M(x_k,y_k^-)\right].
 $$
 
 The mean signed margin observable is
 
 $$
-\hat{\mu}_M
-=
-\frac{1}{K}
-\sum_{k=1}^{K}
-\left[
-S_M(x_k,y_k^+) - S_M(x_k,y_k^-)
-\right].
+\hat{\mu}_M=\frac{1}{K}\sum_{k=1}^{K}\left[S_M(x_k,y_k^+) - S_M(x_k,y_k^-)\right].
 $$
 
 The current experiments mainly use token-normalized log-likelihood as the scoring rule and evaluate Qwen2.5 models on RewardBench.
