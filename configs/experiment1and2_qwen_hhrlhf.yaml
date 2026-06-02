@@ -1,0 +1,37 @@
+cache_dir: /root/autodl-tmp/pairalign-cache
+output_dir: ../runs
+
+swanlab:
+  enabled: true
+  project: pairwise-reference-alignment
+
+models:
+  - Qwen/Qwen2.5-3B
+  - Qwen/Qwen2.5-3B-Instruct
+  - Qwen/Qwen2.5-7B
+  - Qwen/Qwen2.5-7B-Instruct
+
+datasets:
+  - name: Anthropic/hh-rlhf
+    subset: helpful-base
+    split: train
+  - name: Anthropic/hh-rlhf
+    subset: harmless-base
+    split: train
+
+scoring_rules:
+  - token_normalized_loglikelihood
+
+run:
+  name: experiment1and2_qwen_hhrlhf
+  limit: null
+  sample_size: null
+  sample_by_subset: false
+  batch_size: 2
+  max_length: 2048
+  dtype: bf16
+  device: cuda
+  seed: 20260527
+  trust_remote_code: true
+  resume: true
+  prompt_format: plain

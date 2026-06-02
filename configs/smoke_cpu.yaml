@@ -1,0 +1,11 @@
+cache_dir: ./cache
+output_dir: ./runs
+dataset_path: fixtures/toy_pairs.jsonl
+model: mock-cpu-model
+seed: 20260527
+limit: null
+
+swanlab:
+  enabled: true
+  project: pairwise-reference-alignment
+

@@ -1,0 +1,13 @@
+raw_scores_path: ../runs/20260528-092001_experiment1and2_qwen_rewardbench_experiment12/raw_scores.jsonl
+output_dir: ../runs
+run_name: experiment4b_qwen_rewardbench_bootstrap
+
+repeats: 1000
+seed: 20260527
+
+subset_enabled: true
+subset_min_full_k: 20
+
+swanlab:
+  enabled: false
+  project: pairwise-reference-alignment

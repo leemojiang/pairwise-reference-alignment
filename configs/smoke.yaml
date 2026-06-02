@@ -1,0 +1,27 @@
+cache_dir: ../.cache
+output_dir: ../runs
+
+swanlab:
+  enabled: false
+  project: pairwise-reference-alignment
+
+models:
+  - Qwen/Qwen2.5-0.5B
+
+datasets:
+  - allenai/reward-bench
+
+scoring_rules:
+  - token_normalized_loglikelihood
+
+run:
+  name: smoke
+  limit: 8
+  batch_size: 1
+  max_length: 1024
+  dtype: auto
+  device: auto
+  seed: 0
+  trust_remote_code: true
+  resume: true
+

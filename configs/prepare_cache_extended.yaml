@@ -1,0 +1,37 @@
+cache_dir: /root/autodl-tmp/pairalign-cache
+output_dir: ./runs
+hf_endpoint: https://hf-mirror.com
+
+swanlab:
+  enabled: true
+  project: pairwise-reference-alignment
+
+huggingface:
+  token_env: HF_TOKEN
+
+models:
+  - mistralai/Mistral-7B-v0.1
+  - HuggingFaceH4/zephyr-7b-beta
+  - Qwen/Qwen2.5-3B
+  - Qwen/Qwen2.5-3B-Instruct
+  - Qwen/Qwen2.5-7B
+  - Qwen/Qwen2.5-7B-Instruct
+
+datasets:
+  - allenai/reward-bench
+  - name: Anthropic/hh-rlhf
+    subset: helpful-base
+    split: train
+  - name: Anthropic/hh-rlhf
+    subset: harmless-base
+    split: train
+
+download:
+  trust_remote_code: true
+  download_models: true
+  download_datasets: true
+  dataset_verify_limit: 20
+  ignore_patterns:
+    - "*.msgpack"
+    - "*.h5"
+    - "*.ot"

@@ -1,0 +1,28 @@
+cache_dir: /root/autodl-tmp/pairalign-cache
+output_dir: ../runs
+
+swanlab:
+  enabled: true
+  project: pairwise-reference-alignment
+
+models:
+  - Qwen/Qwen2.5-0.5B
+  - Qwen/Qwen2.5-0.5B-Instruct
+
+datasets:
+  - allenai/reward-bench
+
+scoring_rules:
+  - token_normalized_loglikelihood
+
+run:
+  name: smoke_real_small
+  limit: 20
+  batch_size: 1
+  max_length: 1024
+  dtype: bf16
+  device: cuda
+  seed: 20260527
+  trust_remote_code: true
+  resume: true
+  prompt_format: plain
